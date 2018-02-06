@@ -22,7 +22,6 @@ public class BookingSystemTests {
 	public void testEmptySystem() {
 		assertEquals(0, system.availableBookings());
 		assertNull(system.getBooking(0));
-		fail("Not yet implemented");
 	}
 	
 	@Test
@@ -33,5 +32,16 @@ public class BookingSystemTests {
 		assertEquals(1, system.availableBookings());
 		assertEquals(booking, system.getBooking(0));
 		assertNull(system.getBooking(1));
+	}
+	
+	@Test
+	public void testRemoveBooking() {
+		Booking booking = new Booking();
+		booking.addTicket(new StandardTicket());
+		system.addBooking(booking);
+		system.cancelBooking(0);
+		
+		assertEquals(0, system.availableBookings());
+		assertNull(system.getBooking(0));
 	}
 }
