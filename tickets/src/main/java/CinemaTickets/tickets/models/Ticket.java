@@ -14,4 +14,8 @@ public abstract class Ticket {
 	public float getPrice(Day day) {
 		return (day == Day.WEDNESDAY) ? price - 2 : price;
 	}
+
+	public String toString() {
+		return String.format("£%.2f", getPrice());
+	}
 }

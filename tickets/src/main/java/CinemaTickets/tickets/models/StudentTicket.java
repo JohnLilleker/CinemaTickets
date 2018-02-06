@@ -6,4 +6,8 @@ public class StudentTicket extends Ticket {
 		super(6.f);
 	}
 
+	public String toString() {
+		return "Student ticket : " + super.toString();
+	}
+
 }

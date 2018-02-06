@@ -4,7 +4,10 @@ public class ChildTicket extends Ticket {
 
 	public ChildTicket() {
 		super(4.f);
-		// TODO Auto-generated constructor stub
+	}
+
+	public String toString() {
+		return "Child ticket : " + super.toString();
 	}
 
 }

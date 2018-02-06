@@ -6,4 +6,7 @@ public class StandardTicket extends Ticket {
 		super(8.f);
 	}
 
+	public String toString() {
+		return "Standard ticket : " + super.toString();
+	}
 }
