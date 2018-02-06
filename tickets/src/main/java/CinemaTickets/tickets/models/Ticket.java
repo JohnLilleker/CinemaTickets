@@ -8,7 +8,7 @@ public abstract class Ticket {
 	}
 
 	public float getPrice() {
-		return price;
+		return getPrice(Day.MONDAY);
 	}
 
 	public float getPrice(Day day) {

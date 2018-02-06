@@ -29,6 +29,15 @@ public class BookingTest {
 		booking.addTicket(new StandardTicket());
 		booking.addTicket(new StudentTicket());
 		booking.addTicket(new ChildTicket());
-		assertEquals(12, booking.getPrice(Day.WEDNESDAY), 0.001f);
+		assertEquals(12.f, booking.getPrice(Day.WEDNESDAY), 0.001f);
+	}
+
+	@Test
+	public void testThursdayBooking() {
+		Booking booking = new Booking();
+		booking.addTicket(new StandardTicket());
+		booking.addTicket(new StudentTicket());
+		booking.addTicket(new ChildTicket());
+		assertEquals(18.f, booking.getPrice(Day.THURSDAY), 0.001f);
 	}
 }
