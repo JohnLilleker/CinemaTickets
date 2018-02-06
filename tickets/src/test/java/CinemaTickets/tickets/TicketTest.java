@@ -43,7 +43,6 @@ public class TicketTest {
 	@Test
 	public void testTicketsOnOtherDays() {
 		for (Day day : Day.values()) {
-
 			if (day != Day.WEDNESDAY) {
 				Ticket standard = new StandardTicket();
 				assertEquals(8.f, standard.getPrice(day), PRECISION);
