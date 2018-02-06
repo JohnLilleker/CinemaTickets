@@ -3,6 +3,8 @@ package CinemaTickets.tickets.models;
 import java.util.ArrayList;
 import java.util.List;
 
+import CinemaTickets.tickets.models.tickets.Ticket;
+
 public class Booking {
 
 	private List<Ticket> tickets;
@@ -23,4 +25,12 @@ public class Booking {
 		tickets.add(ticket);
 	}
 
+	public List<Ticket> getTickets() {
+		return tickets;
+	}
+
+	public void removeTicket(Ticket ticket) {
+		tickets.remove(ticket);
+	}
+	
 }

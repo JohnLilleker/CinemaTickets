@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import CinemaTickets.tickets.models.*;
+import CinemaTickets.tickets.models.tickets.*;
 
 public class TicketTest {
 
