@@ -10,4 +10,8 @@ public abstract class Ticket {
 	public float getPrice() {
 		return price;
 	}
+
+	public float getPrice(Day day) {
+		return (day == Day.WEDNESDAY) ? price - 2 : price;
+	}
 }
