@@ -18,7 +18,7 @@ public class Booking {
 	}
 
 	public float getPrice(Day day) {
-		return tickets.stream().map(ticket -> ticket.getPrice(day)).reduce(0.f, (price1, price2) -> price1 + price2);
+		return (float) tickets.stream().mapToDouble(ticket -> ticket.getPrice(day)).sum();
 	}
 
 	public void addTicket(Ticket ticket) {
