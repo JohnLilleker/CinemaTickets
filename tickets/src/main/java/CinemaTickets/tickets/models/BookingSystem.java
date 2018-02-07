@@ -7,12 +7,12 @@ public class BookingSystem {
 
 	private Map<Integer, Booking> bookings;
 	private int nextID;
-	
+
 	public BookingSystem() {
 		bookings = new HashMap<>();
 		nextID = 0;
 	}
-	
+
 	public int availableBookings() {
 		return bookings.size();
 	}

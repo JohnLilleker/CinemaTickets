@@ -31,7 +31,6 @@ public class CommandLineInterface {
 
 	// methods
 
-	// create new booking
 	// select a booking
 	// add tickets to a booking
 	// remove tickets from booking
@@ -53,6 +52,7 @@ public class CommandLineInterface {
 			createBooking();
 			break;
 		case CANCEL_BOOKING:
+			cancelBooking();
 			break;
 		case VIEW_BOOKING:
 			break;
@@ -91,7 +91,6 @@ public class CommandLineInterface {
 	}
 
 	private void createBooking() {
-		// can enter cancel to leave method
 		boolean correctInput = false;
 		do {
 			String input = in("What day do you want to book the tickets for? ").toUpperCase();
@@ -108,6 +107,28 @@ public class CommandLineInterface {
 				out("Invalid day");
 			}
 		} while (!correctInput);
+	}
+
+	private void cancelBooking() {
+		out("Cancel a booking");
+		out("Which one should be cancelled?");
+		displayBookings();
+
+		String input = in("Enter the id ");
+		try {
+			int id = Integer.valueOf(input);
+			Booking toCancel = system.getBooking(id);
+			if (toCancel != null) {
+				out(toCancel.toString());
+				if (areYouSure()) {
+					system.cancelBooking(id);
+					out("Booking cancelled");
+				}
+			}
+		} catch (Exception e) {
+
+		}
+
 	}
 
 	private Command getCommand() {
