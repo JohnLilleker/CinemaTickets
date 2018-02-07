@@ -8,17 +8,23 @@ import CinemaTickets.tickets.models.tickets.Ticket;
 public class Booking {
 
 	private List<Ticket> tickets;
+	private Day dayOfFilm;
 
-	public Booking() {
+	public Booking(Day dayOfFilm) {
 		tickets = new ArrayList<>();
+		this.dayOfFilm = dayOfFilm;
 	}
 
 	public float getPrice() {
-		return getPrice(Day.MONDAY);
+		return (float) tickets.stream().mapToDouble(ticket -> ticket.getPrice(dayOfFilm)).sum();
 	}
 
-	public float getPrice(Day day) {
-		return (float) tickets.stream().mapToDouble(ticket -> ticket.getPrice(day)).sum();
+	public Day getDay() {
+		return dayOfFilm;
+	}
+
+	public void setDay(Day dayOfFilm) {
+		this.dayOfFilm = dayOfFilm;
 	}
 
 	public void addTicket(Ticket ticket) {
@@ -32,5 +38,11 @@ public class Booking {
 	public void removeTicket(Ticket ticket) {
 		tickets.remove(ticket);
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Booking on " + dayOfFilm.toString() + ": " + tickets.toString() + " Total = "
+				+ String.format("%.2f", getPrice());
+	}
+
 }
